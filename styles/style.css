@@ -1,0 +1,153 @@
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+
+*/
+
+/* Genegal */
+
+.page {
+  /* background-image: repeating-linear-gradient(
+    to right,
+    rgb(211, 211, 211),
+    rgb(211, 211, 211) 2px,
+    rgb(211 211 211 / 0) 2px,
+    rgb(211 211 211 / 0) 4px
+    ); */
+  padding-block: 102px;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+  background-color: var(--background-page, #fff);
+  color: var(--accent-color, #000);
+}
+
+.element {
+  
+}
+
+.decor {
+
+}
+
+.decor__text-1 {
+
+}
+
+/* Header */
+
+.header {
+  text-align: center;
+}
+
+.header__container {
+  background-color: var(--themes-background, #FFF);
+  border: 1px solid var(--accent-color);
+  width: min(100%, 696px);
+  margin: 0 auto 107px;
+  padding: 25px;
+
+}
+
+.header__title {
+  margin-top: 136px;
+}
+
+.theme-menu {
+
+}
+
+.header__theme-menu {
+
+}
+
+.theme-menu__list {
+
+}
+
+.theme-menu__item button:disabled {
+  content: "▶";
+}
+
+.theme-menu__button {
+
+}
+
+/* Main */
+
+.main {
+
+}
+
+.memories {
+  width: min(100%, 696px);
+  margin: 0 auto;
+}
+
+.memories__list {
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+}
+
+.memories__list-item {
+
+}
+
+.card {
+  background-color: var(--themes-background, #FFF);
+  border: 1px solid var(--accent-color);
+}
+
+.card__title {
+  border-bottom: 1px solid var(--accent-color);
+
+}
+
+.card__img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: min(100%, 694px);
+
+
+}
+
+.card__container {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.card__container-button {
+  margin-left: auto;
+  display: flex;
+}
+
+.like-icon {
+  margin-right: 12px;
+}
+
+.card__like-button {
+  display: flex;
+  width: 130px;
+  height: 38px;
+  padding: 9px 17px;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+}
+
+.decor__text-2 {
+
+}

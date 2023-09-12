@@ -1,0 +1,31 @@
+
+html.theme-light {
+  --background-page: #FFF;
+  --accent-color: #000;
+  --themes-background: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-page: #FFF;
+    --accent-color: #000;
+    --themes-background: #fff;
+    /* var(--themes-main-color, #000) */
+    /* var(--themes-main-color, #00CC14) */
+  }
+}
+
+html.theme-dark {
+  --background-page: #000;
+  --accent-color: #00CC14;
+  --themes-background: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  --background-page: #000;
+  --accent-color: #00CC14;
+  --themes-background: #000;
+
+  }
+}
