@@ -9,85 +9,98 @@
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-
-*/
-
 /* Genegal */
 
 .page {
-  /* background-image: repeating-linear-gradient(
-    to right,
-    rgb(211, 211, 211),
-    rgb(211, 211, 211) 2px,
-    rgb(211 211 211 / 0) 2px,
-    rgb(211 211 211 / 0) 4px
-    ); */
-  /* background-image: linear-gradient(180deg, #E7E7E7 0%, #1A1A1A 100%);; */
-
   padding-block: 102px;
   color: var(--accent-color, #000);
   background-color: var(--background-page, #fff);
+  background-image: repeating-linear-gradient(90deg, var(--gradient, #d3d3d3), transparent 2px 4px),
+    repeating-linear-gradient(var(--gradient, #d3d3d3), transparent 2px 4px),
+    linear-gradient(var(--gradient-start, #e7e7e7),
+      var(--gradient-end, #1a1a1a)
+    );
+  background-size: cover;
+  background-repeat: no-repeat;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-attachment: fixed;
 }
 
 .element {
-  
 }
 
 /* Header */
 
 .header {
+  font-family: var(
+    --font-family-decor,
+    "Arial",
+    "Helvetica",
+    "monospace",
+    sans-serif
+  );
+  font-style: normal;
+  line-height: normal;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .header__container {
   width: min(100%, 696px);
-  margin: 0 auto 107px;
+  margin: 0 auto 100px;
   border: 1px solid var(--accent-color);
   padding: 25px;
-  background-color: var(--themes-background, #FFF);
-
+  background-color: var(--themes-background, #fff);
 }
 
 .header__title {
-  margin: 136px 0 20px;
+  margin: 110px 0 20px;
+  font-weight: var(--font-weight-text);
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
 }
 
 .header__subtitle {
   margin-bottom: 25px;
+  font-weight: var(--font-weight-text);
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
 
 .theme-menu {
-
 }
 
 .header__theme-menu {
-
 }
 
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
-.theme-menu__item button:disabled {
+.theme-menu__item button:disabled[true] {
   content: "▶";
 }
 
 .theme-menu__button {
   border: none;
+  font-family: var(
+    --font-family-decor,
+    "Arial",
+    "Helvetica",
+    "monospace",
+    sans-serif
+  );
+  font-weight: var(--font-weight-text);
+  font-size: 14px;
+  line-height: normal;
+  text-transform: uppercase;
   background-color: transparent;
 }
 
 /* Main */
 
 .main {
-
 }
 
 .memories {
@@ -98,8 +111,7 @@
 .memories__list {
   display: flex;
   flex-direction: column;
-  gap: 54px;
-  margin-bottom: 54px;
+  gap: 53px;
 }
 
 .memories__list-item {
@@ -109,12 +121,37 @@
 .card {
   position: relative;
   border: 1px solid var(--accent-color);
-  background-color: var(--themes-background, #FFF);
+  background-color: var(--themes-background, #fff);
 }
 
 .card__title {
   border-bottom: 1px solid var(--accent-color);
+  padding: 6px 12px;
+  font-family: var(
+    --font-family-text,
+    "Arial",
+    "Helvetica",
+    "monospace",
+    sans-serif
+  );
+  font-weight: var(--font-weight-title, 700);
+  font-size: 18px;
+  font-style: normal;
+  line-height: normal;
+}
 
+.card__container p {
+  font-family: var(
+    --font-family-text,
+    "Arial",
+    "Helvetica",
+    "monospace",
+    sans-serif
+  );
+  font-weight: var(--font-weight-text, 400);
+  font-size: 18px;
+  font-style: normal;
+  line-height: 21px;
 }
 
 .card__img {
@@ -124,44 +161,75 @@
   background-size: cover;
 }
 
+.img__filter-2 {
+  filter: grayscale(0.7);
+}
+
+.img__filter-3 {
+  filter: saturate(200%);
+}
+
+.img__filter-4 {
+}
+
+.img__filter-5 {
+  filter: invert(1);
+}
+
+.img__filter-6 {
+  filter: sepia(80%);
+}
+
+.card__wrapper-overflow {
+  overflow: hidden;
+}
+
+.img__filter-7 {
+  filter: blur(1rem);
+}
+
+.img__filter-8 {
+}
+
 .decor {
   position: absolute;
   top: 50px;
   right: 26px;
   opacity: 0.5;
   color: var(--accent-color, #000);
-  font-family: 'Press Start 2P';
+  font-family: "Press Start 2P";
   font-weight: 400;
   font-size: 14px;
   font-style: normal;
   line-height: normal;
-  text-transform: uppercase;
-  text-shadow:
-  -1px 0 var(--strong-text, #FFF), 
-  0 1px var(--strong-text, #FFF), 
-  1px 0 var(--strong-text, #FFF), 
-  0 -1px var(--strong-text, #FFF);
+  text-shadow: -1px 0 var(--strong-text, #fff), 0 1px var(--strong-text, #fff),
+    1px 0 var(--strong-text, #fff), 0 -1px var(--strong-text, #fff);
   mix-blend-mode: hard-light;
 }
 
-@supports((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+@supports ((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
   .decor {
-      text-shadow: none;
-      -webkit-text-stroke: 1px var(--strong-text, #FFF);
-      text-stroke: 1px var(--strong-text, #FFF);
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--strong-text, #fff);
+    text-stroke: 1px var(--strong-text, #fff);
   }
-} 
+}
 
 .card__container {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  padding: 25px;
+  gap: 26px;
+  padding: 24px;
 }
 
 .card__container-button {
   display: flex;
   margin-left: auto;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: none;
 }
 
 .like-icon {
@@ -174,13 +242,23 @@
   align-items: center;
   width: 130px;
   height: 38px;
-  border: 1px solid var(--accent-color);
+  border: 2px solid var(--accent-color);
   padding: 9px 17px;
+  font-family: var(
+    --font-family-decor,
+    "Arial",
+    "Helvetica",
+    "monospace",
+    sans-serif
+  );
+  font-weight: var(--font-weight-text);
+  font-size: 14px;
+  font-style: normal;
+  line-height: 90%;
   background-color: transparent;
 }
 
 .button__text {
-
 }
 
 .memories__button {
@@ -188,13 +266,26 @@
   justify-content: center;
   align-items: center;
   border: none;
+  border: 2px solid var(--accent-color);
+  padding: 16px;
+  font-family: var(
+    --font-family-decor,
+    "Arial",
+    "Helvetica",
+    "monospace",
+    sans-serif
+  );
+  font-weight: var(--font-weight-text);
+  font-size: 14px;
+  font-style: normal;
+  line-height: 90%;
   background-color: transparent;
 }
 
 dialog {
   position: relative;
-  border: 1px solid var(--accent-color);
   width: min(100%, 357px);
+  border: 1px solid var(--accent-color);
   color: var(--accent-color, #000);
   background-color: var(--background-page, #fff);
 }
@@ -205,11 +296,11 @@ dialog::backdrop {
 }
 
 .close {
-  margin-top: 30px;
-  color: var(--accent-color, #000);
-  background-color: var(--background-page, #fff);
-  border: 1px solid var(--accent-color);
   width: 100%;
+  margin-top: 30px;
+  border: 1px solid var(--accent-color);
   padding: 9px 17px;
+  color: var(--accent-color, #000);
   text-transform: uppercase;
+  background-color: var(--background-page, #fff);
 }
