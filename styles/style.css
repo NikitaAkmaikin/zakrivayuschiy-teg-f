@@ -207,10 +207,6 @@ dialog::backdrop {
   }
 }
 
-/* ============================ MAIN ============================ */
-
-.main {}
-
 /* ============================ Section Memories ============================ */
 
 .memories {
@@ -287,7 +283,9 @@ dialog::backdrop {
   filter: saturate(200%);
 }
 
-.img__filter-4 {}
+.img__filter-4 {
+  filter: sepia(1) contrast(2) brightness(200%);
+}
 
 .img__filter-5 {
   filter: invert(1);
@@ -301,7 +299,9 @@ dialog::backdrop {
   filter: blur(1rem);
 }
 
-.img__filter-8 {}
+.img__filter-8 {
+  filter: drop-shadow(5px 15px 3px rgba(0, 0, 0, 0.8));
+}
 
 /* ============================ Decor => card__img ============================ */
 
