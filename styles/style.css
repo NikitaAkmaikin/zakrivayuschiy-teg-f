@@ -33,7 +33,7 @@
 /* ============================ DIALOG ============================ */
 
 .dialog {
-  position: relative;
+  position: fixed;
   width: min(100%, 357px);
   border: 1px solid var(--accent-color, #000);
   color: var(--accent-color, #000);
