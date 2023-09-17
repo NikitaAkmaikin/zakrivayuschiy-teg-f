@@ -25,16 +25,17 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-variation-settings: 'wght' var(--font-weight-text, 400) 'opsz' 0;
   min-inline-size: 320px;
   min-block-size: 100dvb;
 }
 
 /* ============================ DIALOG ============================ */
 
-dialog {
+.dialog {
   position: relative;
   width: min(100%, 357px);
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--accent-color, #000);
   color: var(--accent-color, #000);
   background-color: var(--background-page, #fff);
 }
@@ -47,7 +48,7 @@ dialog::backdrop {
 .close {
   width: 100%;
   margin-top: 30px;
-  border: 2px solid var(--accent-color);
+  border: 2px solid var(--accent-color, #000);
   padding: 9px 17px;
   text-transform: uppercase;
   background-color: var(--background-page, #fff);
@@ -68,20 +69,18 @@ dialog::backdrop {
 .dialog__button-floppy {
   inline-size: 40px;
   block-size: 40px;
-  fill: var(--accent-color);
-  stroke: 1px var(--accent-color);
 }
 
 .dialog__container-content p {
   color: var(--accent-color, #000);
+  fill: var(--accent-color, #000);
+  stroke: 1px var(--accent-color, #000);
   font-family: var(--font-family-decor, monospace);
+  font-weight: var(--font-weight-text, 400);
   font-size: 14px;
   font-style: normal;
-  font-weight: var(--font-weight-text);
   line-height: 150%;
   text-transform: uppercase;
-  fill: var(--accent-color);
-  stroke: 1px var(--accent-color);
 }
 
 /* ============================ HEADER ============================ */
@@ -101,21 +100,21 @@ dialog::backdrop {
 .header__container {
   width: min(100%, 696px);
   margin: 0 auto 103px;
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--accent-color, #000);
   padding: 136px 25px 25px;
   background-color: var(--themes-background, #fff);
 }
 
 .header__logo {
-  font-weight: var(--font-weight-text);
+  font-weight: var(--font-weight-text, 400);
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  cursor: pointer;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .header__title {
   margin: 20px 0 25px;
-  font-weight: var(--font-weight-text);
+  font-weight: var(--font-weight-text, 400);
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
 
@@ -139,26 +138,17 @@ dialog::backdrop {
 }
 
 .theme-menu__button {
+  position: relative;
   border: none;
+  padding: 0;
   font-family: var(--font-family-decor,
       "Arial",
       "Helvetica",
       "monospace",
       sans-serif);
-  font-weight: var(--font-weight-text);
+  font-weight: var(--font-weight-text, 400);
   font-size: 14px;
   line-height: normal;
-  text-transform: uppercase;
-  background-color: transparent;
-}
-
-.theme-menu__button {
-  position: relative;
-  border: none;
-  padding: 0;
-  font-family: var(--accent-font);
-  font-weight: var(--text-font-weight);
-  font-size: 14px;
   text-transform: uppercase;
   background-color: transparent;
   transition: opacity 0.3s ease;
@@ -170,7 +160,7 @@ dialog::backdrop {
   left: -1px;
   display: block;
   height: 1px;
-  background-color: var(--accent-color);
+  background-color: var(--accent-color, #000);
   transition: inline-size 0.3s ease, opacity 0.3s ease;
   inset-block-end: -2px;
   inline-size: 0%;
@@ -225,12 +215,12 @@ dialog::backdrop {
 }
 
 .card {
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--accent-color, #000);
   background-color: var(--themes-background, #fff);
 }
 
 .card__title {
-  border-bottom: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--accent-color, #000);
   padding: 6px 12px;
   font-family: var(--font-family-text,
       "Arial",
@@ -241,6 +231,7 @@ dialog::backdrop {
   font-size: 18px;
   font-style: normal;
   line-height: normal;
+  font-variation-settings: 'wght' var(--font-weight-title, 400) 'opsz' 0;
 }
 
 .card__content {
@@ -255,7 +246,7 @@ dialog::backdrop {
       "Helvetica",
       "monospace",
       sans-serif);
-  font-weight: var(--font-weight-text, 400);
+  font-weight: var(--font-weight-text, 400, 400);
   font-size: 18px;
   font-style: normal;
   line-height: 21px;
@@ -275,31 +266,35 @@ dialog::backdrop {
   background-size: cover;
 }
 
-.img__filter-2 {
+.card__image_filter_brightness {
+  filter: brightness(120%);
+} 
+
+.card__image_filter_grayscale {
   filter: grayscale(0.7);
 }
 
-.img__filter-3 {
+.card__image_filter_saturate {
   filter: saturate(200%);
 }
 
-.img__filter-4 {
+.card__image_filter_sepia-contrast {
   filter: sepia(1) contrast(2) brightness(200%);
 }
 
-.img__filter-5 {
+.card__image_filter_invert {
   filter: invert(1);
 }
 
-.img__filter-6 {
+.card__image_filter_sepia {
   filter: sepia(80%);
 }
 
-.img__filter-7 {
+.card__image_filter_blur {
   filter: blur(1rem);
 }
 
-.img__filter-8 {
+.card__image_filter_drop-shadow {
   filter: drop-shadow(5px 15px 3px rgba(0, 0, 0, 0.8));
 }
 
@@ -311,7 +306,7 @@ dialog::backdrop {
   right: 25px;
   opacity: 0.5;
   color: var(--accent-color, #000);
-  font-family: "Press Start 2P";
+  font-family: var(--font-family-decor, monospace);
   font-weight: 400;
   font-size: 14px;
   font-style: normal;
@@ -321,7 +316,7 @@ dialog::backdrop {
   mix-blend-mode: hard-light;
 }
 
-@supports ((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+@supports ((text-stroke: 1px #000) or (-webkit-text-stroke: 1px #000)) {
   .decor {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--strong-text, #fff);
@@ -347,11 +342,10 @@ dialog::backdrop {
 /* ============================ card__icon-button => Иконка сердца ============================ */
 
 .card__icon-button {
-  border: none;
-  background-color: transparent;
   border: 2px solid transparent;
-  transition: border 0.3s ease;
   padding: 0;
+  background-color: transparent;
+  transition: border 0.3s ease;
 }
 
 .heart {
@@ -375,22 +369,22 @@ dialog::backdrop {
 }
 
 .like-icon:hover .core {
-  fill: var(--accent-color);
+  fill: var(--accent-color, #000);
   transition: fill 0.3s linear;
 }
 
 .like-icon:hover .main-body {
-  fill: var(--accent-color);
+  fill: var(--accent-color, #000);
   transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon:active .core {
-  fill: var(--heart-icon);
+  fill: var(--heart-icon, red);
   transition: fill 0.3s linear;
 }
 
 .like-icon:active .main-body {
-  fill: var(--heart-icon);
+  fill: var(--heart-icon, red);
   transition: fill 0.3s linear 0.05s;
 }
 
@@ -405,17 +399,17 @@ dialog::backdrop {
 }
 
 .like-icon.is-liked .core {
-  fill: var(--heart-icon);
+  fill: var(--heart-icon, red);
   transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
-  fill: var(--heart-icon);
+  fill: var(--heart-icon, red);
   transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .contour {
-  fill: var(--heart-icon);
+  fill: var(--heart-icon, red);
   transition: fill 0.3s linear 0.06s;
 }
 
@@ -440,25 +434,26 @@ dialog::backdrop {
 /* ============================ card__like-button => кнопка "LIKE" ============================ */
 
 .card__like-button {
+  min-width: 130px;
+  max-height: 38px;
+  border: 2px solid var(--accent-color, #000);
+  padding: 9px 17px;
   font-family: var(--font-family-decor,
       "Arial",
       "Helvetica",
       "monospace",
       sans-serif);
-  font-weight: var(--font-weight-text);
+  font-weight: var(--font-weight-text, 400);
   font-size: 14px;
   font-style: normal;
   line-height: 90%;
-  width: 130px;
-  padding: 9px 17px;
-  border: 2px solid var(--accent-color);
-  background-color: var(--background-page);
+  background-color: var(--background-page, #fff);
 }
+
 .close,
 .memories__button,
 .card__like-button {
   position: relative;
-  height: min(100%, 34px);
   transition: box-shadow 0.3s ease;
 }
 
@@ -466,11 +461,11 @@ dialog::backdrop {
 .memories__button::after,
 .card__like-button::after {
   content: "";
-  inset: 0;
   position: absolute;
-  inline-size: 0%;
-  background-color: var(--accent-color);
+  inset: 0;
+  background-color: var(--accent-color, #000);
   transition: inline-size 0.5s ease-in-out;
+  inline-size: 0%;
 }
 
 .close:hover::after,
@@ -489,18 +484,19 @@ dialog::backdrop {
 .memories__button:focus-visible,
 .card__like-button:focus-visible {
   box-shadow: 4px 4px 0 var(--accent-color, #000);
-  transition: inline-size 0.5s ease-in-out;
-  transition: box-shadow 0.3s ease;
+  transition: inline-size 0.5s ease-in-out, box-shadow 0.3s ease;
 }
 
-.button__text {
+.card__like-button-text,
+.dialog__container-button-text,
+.memories__button-text {
   position: relative;
   z-index: 2;
-  font-family: var(--font-family-decor);
+  color: var(--hover-button, #fff);
+  font-family: var(--font-family-decor, monospace);
+  font-weight: var(--font-weight-text, 400);
   font-size: 14px;
-  font-weight: var(--font-weight-text);
   line-height: 90%;
-  color: var(--hover-button);
   mix-blend-mode: difference;
 }
 
@@ -510,47 +506,56 @@ dialog::backdrop {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
-  border: 2px solid var(--accent-color);
+  gap: 8px;
+  margin: 46px auto 100px;
+  border: 2px solid var(--accent-color, #000);
   padding: 16px;
   font-family: var(--font-family-decor,
       "Arial",
       "Helvetica",
       "monospace",
       sans-serif);
-  font-weight: var(--font-weight-text);
+  font-weight: var(--font-weight-text, 400);
   font-size: 14px;
   font-style: normal;
+  width: min(100%, 338px);
   line-height: 90%;
-  background-color: var(--background-page);
+  background-color: var(--background-page, #fff);
   transition: box-shadow 0.3s ease;
-  gap: 8px;
-  margin: 46px auto 100px;
+}
+
+.discreta {
+  fill: var(--accent-color, #000);
+  stroke: 1px var(--accent-color, #000);
 }
 
 .memories__button-floppy {
   inline-size: 21px;
   block-size: 21px;
-  fill: var(--accent-color);
-  stroke: 1px var(--accent-color);
 }
 
 @media (width <= 400px) {
   .header__logo {
     margin-left: -9px;
-    }
+  }
+
   .header__container {
     padding: 120px 25px 25px;
   }
+
   .card__container {
-    padding: 21px 26px 26px;
+    padding: 21px 27px 26px;
   }
+
   .memories__list {
     gap: 44px;
-  }  
+  }
+
   .memories__button {
     flex-direction: column;
+    width: min(100%, 306px);
   }
+
   .memories__button-floppy {
     inline-size: 28px;
     block-size: 28px;
