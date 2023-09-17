@@ -9,37 +9,89 @@
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
-/* Genegal */
+
+/* ============================ Genegal ============================ */
 
 .page {
-  padding-block: 102px;
+  padding-block-start: 102px;
   color: var(--accent-color, #000);
   background-color: var(--background-page, #fff);
-  background-image: repeating-linear-gradient(90deg, var(--gradient, #d3d3d3), transparent 2px 4px),
+  background-image: repeating-linear-gradient(90deg,
+      var(--gradient, #d3d3d3),
+      transparent 2px 4px),
     repeating-linear-gradient(var(--gradient, #d3d3d3), transparent 2px 4px),
     linear-gradient(var(--gradient-start, #e7e7e7),
-      var(--gradient-end, #1a1a1a)
-    );
-  background-size: cover;
+      var(--gradient-end, #1a1a1a));
   background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  background-attachment: fixed;
 }
 
-.element {
+/* ============================ DIALOG ============================ */
+
+dialog {
+  position: relative;
+  width: min(100%, 357px);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color, #000);
+  background-color: var(--background-page, #fff);
 }
 
-/* Header */
+dialog::backdrop {
+  opacity: 0.75;
+  background-color: #000;
+}
+
+.close {
+  width: 100%;
+  margin-top: 30px;
+  border: 2px solid var(--accent-color);
+  padding: 9px 17px;
+  text-transform: uppercase;
+  background-color: var(--background-page, #fff);
+  transition: box-shadow 0.3s ease;
+}
+
+.dialog__container {
+  padding: 15px;
+}
+
+.dialog__container-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(min-content, max-content));
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__button-floppy {
+  inline-size: 40px;
+  block-size: 40px;
+  fill: var(--accent-color);
+  stroke: 1px var(--accent-color);
+}
+
+.dialog__container-content p {
+  color: var(--accent-color, #000);
+  font-family: var(--font-family-decor, monospace);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: var(--font-weight-text);
+  line-height: 150%;
+  text-transform: uppercase;
+  fill: var(--accent-color);
+  stroke: 1px var(--accent-color);
+}
+
+/* ============================ HEADER ============================ */
 
 .header {
-  font-family: var(
-    --font-family-decor,
-    "Arial",
-    "Helvetica",
-    "monospace",
-    sans-serif
-  );
+  font-family: var(--font-family-decor,
+      "Arial",
+      "Helvetica",
+      "monospace",
+      sans-serif);
   font-style: normal;
   line-height: normal;
   text-align: center;
@@ -48,49 +100,51 @@
 
 .header__container {
   width: min(100%, 696px);
-  margin: 0 auto 100px;
+  margin: 0 auto 103px;
   border: 1px solid var(--accent-color);
-  padding: 25px;
+  padding: 136px 25px 25px;
   background-color: var(--themes-background, #fff);
 }
 
-.header__title {
-  margin: 110px 0 20px;
+.header__logo {
   font-weight: var(--font-weight-text);
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.header__subtitle {
-  margin-bottom: 25px;
+.header__title {
+  margin: 20px 0 25px;
   font-weight: var(--font-weight-text);
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
 
-.theme-menu {
-}
+/* ============================ theme-menu ============================ */
 
-.header__theme-menu {
+.theme-menu {
+  display: flex;
+  justify-content: center;
 }
 
 .theme-menu__list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
+  width: min(100%, 66px);
 }
 
-.theme-menu__item button:disabled[true] {
-  content: "▶";
+.theme-menu__item {
+  align-self: start;
 }
 
 .theme-menu__button {
   border: none;
-  font-family: var(
-    --font-family-decor,
-    "Arial",
-    "Helvetica",
-    "monospace",
-    sans-serif
-  );
+  font-family: var(--font-family-decor,
+      "Arial",
+      "Helvetica",
+      "monospace",
+      sans-serif);
   font-weight: var(--font-weight-text);
   font-size: 14px;
   line-height: normal;
@@ -98,10 +152,66 @@
   background-color: transparent;
 }
 
-/* Main */
-
-.main {
+.theme-menu__button {
+  position: relative;
+  border: none;
+  padding: 0;
+  font-family: var(--accent-font);
+  font-weight: var(--text-font-weight);
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: opacity 0.3s ease;
 }
+
+.theme-menu__button::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  display: block;
+  height: 1px;
+  background-color: var(--accent-color);
+  transition: inline-size 0.3s ease, opacity 0.3s ease;
+  inset-block-end: -2px;
+  inline-size: 0%;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
+  inline-size: 100%;
+}
+
+.theme-menu__button:disabled,
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  left: -22px;
+  animation: headerArrow 0.5s infinite ease-in-out alternate;
+}
+
+@keyframes headerArrow {
+  0% {
+    transform: translateX(-4px);
+  }
+
+  100% {
+    transform: translateX(4px);
+  }
+}
+
+/* ============================ MAIN ============================ */
+
+.main {}
+
+/* ============================ Section Memories ============================ */
 
 .memories {
   width: min(100%, 696px);
@@ -111,7 +221,7 @@
 .memories__list {
   display: flex;
   flex-direction: column;
-  gap: 53px;
+  gap: 48px;
 }
 
 .memories__list-item {
@@ -119,7 +229,6 @@
 }
 
 .card {
-  position: relative;
   border: 1px solid var(--accent-color);
   background-color: var(--themes-background, #fff);
 }
@@ -127,31 +236,40 @@
 .card__title {
   border-bottom: 1px solid var(--accent-color);
   padding: 6px 12px;
-  font-family: var(
-    --font-family-text,
-    "Arial",
-    "Helvetica",
-    "monospace",
-    sans-serif
-  );
+  font-family: var(--font-family-text,
+      "Arial",
+      "Helvetica",
+      "monospace",
+      sans-serif);
   font-weight: var(--font-weight-title, 700);
   font-size: 18px;
   font-style: normal;
   line-height: normal;
 }
 
-.card__container p {
-  font-family: var(
-    --font-family-text,
-    "Arial",
-    "Helvetica",
-    "monospace",
-    sans-serif
-  );
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.card__content p {
+  font-family: var(--font-family-text,
+      "Arial",
+      "Helvetica",
+      "monospace",
+      sans-serif);
   font-weight: var(--font-weight-text, 400);
   font-size: 18px;
   font-style: normal;
   line-height: 21px;
+}
+
+/* ============================ Card__img => картинки ============================ */
+
+.card__wrapper-overflow {
+  position: relative;
+  overflow: hidden;
 }
 
 .card__img {
@@ -169,8 +287,7 @@
   filter: saturate(200%);
 }
 
-.img__filter-4 {
-}
+.img__filter-4 {}
 
 .img__filter-5 {
   filter: invert(1);
@@ -180,21 +297,18 @@
   filter: sepia(80%);
 }
 
-.card__wrapper-overflow {
-  overflow: hidden;
-}
-
 .img__filter-7 {
   filter: blur(1rem);
 }
 
-.img__filter-8 {
-}
+.img__filter-8 {}
+
+/* ============================ Decor => card__img ============================ */
 
 .decor {
   position: absolute;
-  top: 50px;
-  right: 26px;
+  top: 25px;
+  right: 25px;
   opacity: 0.5;
   color: var(--accent-color, #000);
   font-family: "Press Start 2P";
@@ -215,51 +329,182 @@
   }
 }
 
+/* ============================ card__container => контент ============================ */
+
 .card__container {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 25px;
   padding: 24px;
 }
 
-.card__container-button {
+.card__container-box {
   display: flex;
-  margin-left: auto;
+  justify-content: end;
+  gap: 4px;
 }
+
+/* ============================ card__icon-button => Иконка сердца ============================ */
 
 .card__icon-button {
-  background-color: transparent;
   border: none;
+  background-color: transparent;
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
+  padding: 0;
 }
 
-.like-icon {
-  margin-right: 12px;
+.heart {
+  cursor: pointer;
 }
+
+.core {
+  transition: fill 0.3s linear 0.03s;
+}
+
+.contour {
+  transition: fill 0.3s linear;
+}
+
+.main-body {
+  transition: fill 0.3s linear;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon:hover .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--accent-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon:active .core {
+  fill: var(--heart-icon);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart-icon);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked {
+  animation: heart-big 0.3s ease-in alternate 0.1s;
+}
+
+@keyframes heart-big {
+  to {
+    transform: scale(1.5);
+  }
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-icon);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-icon);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-icon);
+  transition: fill 0.3s linear 0.06s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: hidden-heart 0.3s ease-in alternate 0.3s;
+}
+
+@keyframes hidden-heart {
+  to {
+    opacity: 1;
+  }
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accent-color, #000);
+}
+
+/* ============================ card__like-button => кнопка "LIKE" ============================ */
 
 .card__like-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 130px;
-  height: 38px;
-  border: 2px solid var(--accent-color);
-  padding: 9px 17px;
-  font-family: var(
-    --font-family-decor,
-    "Arial",
-    "Helvetica",
-    "monospace",
-    sans-serif
-  );
+  font-family: var(--font-family-decor,
+      "Arial",
+      "Helvetica",
+      "monospace",
+      sans-serif);
   font-weight: var(--font-weight-text);
   font-size: 14px;
   font-style: normal;
   line-height: 90%;
-  background-color: transparent;
+  width: 130px;
+  padding: 9px 17px;
+  border: 2px solid var(--accent-color);
+  background-color: var(--background-page);
+}
+.close,
+.memories__button,
+.card__like-button {
+  position: relative;
+  height: min(100%, 34px);
+  transition: box-shadow 0.3s ease;
+}
+
+.close::after,
+.memories__button::after,
+.card__like-button::after {
+  content: "";
+  inset: 0;
+  position: absolute;
+  inline-size: 0%;
+  background-color: var(--accent-color);
+  transition: inline-size 0.5s ease-in-out;
+}
+
+.close:hover::after,
+.memories__button:hover::after,
+.card__like-button:hover::after {
+  inline-size: 100%;
+}
+
+.close:focus,
+.memories__button:focus,
+.card__like-button:focus {
+  outline: none;
+}
+
+.close:focus-visible,
+.memories__button:focus-visible,
+.card__like-button:focus-visible {
+  box-shadow: 4px 4px 0 var(--accent-color, #000);
+  transition: inline-size 0.5s ease-in-out;
+  transition: box-shadow 0.3s ease;
 }
 
 .button__text {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-family-decor);
+  font-size: 14px;
+  font-weight: var(--font-weight-text);
+  line-height: 90%;
+  color: var(--hover-button);
+  mix-blend-mode: difference;
 }
+
+/* ============================ .memories__list-button => кнопка "Сохранить на память" ============================ */
 
 .memories__button {
   display: flex;
@@ -268,39 +513,46 @@
   border: none;
   border: 2px solid var(--accent-color);
   padding: 16px;
-  font-family: var(
-    --font-family-decor,
-    "Arial",
-    "Helvetica",
-    "monospace",
-    sans-serif
-  );
+  font-family: var(--font-family-decor,
+      "Arial",
+      "Helvetica",
+      "monospace",
+      sans-serif);
   font-weight: var(--font-weight-text);
   font-size: 14px;
   font-style: normal;
   line-height: 90%;
-  background-color: transparent;
+  background-color: var(--background-page);
+  transition: box-shadow 0.3s ease;
+  gap: 8px;
+  margin: 46px auto 100px;
 }
 
-dialog {
-  position: relative;
-  width: min(100%, 357px);
-  border: 1px solid var(--accent-color);
-  color: var(--accent-color, #000);
-  background-color: var(--background-page, #fff);
+.memories__button-floppy {
+  inline-size: 21px;
+  block-size: 21px;
+  fill: var(--accent-color);
+  stroke: 1px var(--accent-color);
 }
 
-dialog::backdrop {
-  opacity: 0.75;
-  background-color: #000;
-}
-
-.close {
-  width: 100%;
-  margin-top: 30px;
-  border: 1px solid var(--accent-color);
-  padding: 9px 17px;
-  color: var(--accent-color, #000);
-  text-transform: uppercase;
-  background-color: var(--background-page, #fff);
+@media (width <= 400px) {
+  .header__logo {
+    margin-left: -9px;
+    }
+  .header__container {
+    padding: 120px 25px 25px;
+  }
+  .card__container {
+    padding: 21px 26px 26px;
+  }
+  .memories__list {
+    gap: 44px;
+  }  
+  .memories__button {
+    flex-direction: column;
+  }
+  .memories__button-floppy {
+    inline-size: 28px;
+    block-size: 28px;
+  }
 }

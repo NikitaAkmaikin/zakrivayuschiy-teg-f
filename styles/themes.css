@@ -9,6 +9,8 @@ html.theme-light {
   --gradient-start: #e7e7e7;
   --gradient-end: #1a1a1a;
   --gradient: #d3d3d3;
+  --heart-icon: red;
+  --hover-button: #fff;
 }
 
 @media (prefers-color-scheme: light) {
@@ -22,6 +24,8 @@ html.theme-light {
     --gradient-start: #e7e7e7;
     --gradient-end: #1a1a1a;
     --gradient: #d3d3d3;
+    --heart-icon: red;
+    --hover-button: #fff;
   }
 }
 
@@ -35,6 +39,8 @@ html.theme-dark {
   --gradient-start: #007f0c;
   --gradient-end: #004306;
   --gradient: #000;
+  --heart-icon: red;
+  --hover-button: #00CC14;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -48,5 +54,7 @@ html.theme-dark {
   --gradient-start: #007f0c;
   --gradient-end: #004306;
   --gradient: #000;
+  --heart-icon: red;
+  --hover-button: #00CC14;
   }
 }
