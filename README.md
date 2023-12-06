@@ -1,2 +1,7 @@
-# zakrivayuschiy-teg-f
-https://github.com/NikitaAkmaikin/zakrivayuschiy-teg-f
+# Проектная работа Закрывающийся-тег №2 на курсе Яндекс Практикум по Фронтенд-разработке
+Ссылка на курс - https://practicum.yandex.ru/frontend-developer/
+Ссылка на проект для просмотра - https://nikitaakmaikin.github.io/zakrivayuschiy-teg-f/
+
+1) Реализация светлой/темной темы
+2) Реализация фильтров и градиента
+3) Реализация Анимации
